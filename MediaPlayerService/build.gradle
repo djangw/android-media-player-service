@@ -1,0 +1,28 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion '25.0.2'
+    defaultConfig {
+        applicationId 'com.android.osg'
+        minSdkVersion 14
+        targetSdkVersion 25
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled = false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'),
+                    'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main {
+            java.srcDirs "src/main/java"
+            res.srcDirs "src/main/res"
+        }
+        androidTest.setRoot('tests')
+        androidTest.java.srcDirs = ['tests/src']
+    }
+}
